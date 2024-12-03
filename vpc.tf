@@ -1,12 +1,12 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "smruti-vpc"
-  cidr = "10.0.0.0/16"
+  name = var.vpc_name                   #"smruti-vpc"
+  cidr = var.vpc_cidr
 
-  azs             = ["ap-south-1a", "ap-south-1b"]
-  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
-  public_subnets  = ["10.0.4.0/24", "10.0.5.0/24"]
+  azs = var.azs
+  private_subnets = var.private_subnets
+  public_subnets  = var.public_subnets
 
   enable_nat_gateway = true
   enable_vpn_gateway = true
