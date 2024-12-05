@@ -3,7 +3,9 @@ module "ecr" {
 
   for_each = toset(var.microservices) # Dynamically iterate over microservices
 
-  repository_name = each.key # Use the microservice name directly as the repository name
+  repository_name = "${each.key}-smruti" # Use the microservice name directly as the repository name
+
+  repository_image_tag_mutability = "MUTABLE"
 
   repository_read_write_access_arns = ["arn:aws:iam::218306567362:role/ecr-access-role-${each.key}"]
 
@@ -24,4 +26,5 @@ module "ecr" {
       }
     ]
   })
+  
 }
