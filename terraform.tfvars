@@ -12,8 +12,8 @@ eks_cluster_version = "1.31"
 eks_ami_type = "AL2023_x86_64_STANDARD"
 eks_instance_type = ["t3a.small"]
 node_capacity_type = "SPOT"
-node_min_size = 1
-node_max_size = 1
-node_desired_size = 1
+node_min_size = 8
+node_max_size = 10
+node_desired_size = 8
 
 
