@@ -13,7 +13,7 @@ module "eks" {
     kube-proxy             = {}
     vpc-cni                = {}
     aws-ebs-csi-driver  = {most_recent              = true
-      service_account_role_arn = "arn:aws:iam::218306567362:role/ebs-csi-role-for-smruti-eks"}
+      service_account_role_arn = aws_iam_role.ebs_csi.arn}
   }
 
   vpc_id                   = module.vpc.vpc_id
